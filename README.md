@@ -21,33 +21,49 @@ Preprocessing Steps:
 Selecting Suitable Window:
 • We first find out the maximum longitude and latitude and similarly minimum
 longitude and latitude.
+
 • We divide whole region into grid of 0.15 × 0.15 squares.
+
 • We then find the square where maximum number of the data points lie.
 Cleansing of Graph Using OSMnx:
+
 • Used the OSMnx python library to download the map of Rome for the desired
 region.
+
 • cleaned it to remove reduntant nodes lying in between the edges.
+
 • Finally it results in text file containing nodes and edges of the graph.
 
 Filtering Taxi Data:
+
 • In this step, we filter those data points that lie within our desired region.
+
 • Since the data is samples every 7 seconds, We have a lot of redundant data points
 which lie in the middle of a road.
+
 • To remove the redundant data, for each taxi locations we found the closest node in
 the graph using Locality Sensitive Hashing (Ref: lshash Python library).
+
 • If the closest node lies within a threshold of the actual data point then we replace
 the actual location with the map node , else the data point is removed.
 
 
+
 Extracting Link Durations:
+
 • To find which link a driver is travelling through , we divide the data into 300 files
 based on driver ids where each file contains data for one driver.
+
 • We then traverse each file one by one .
+
 • For each file we see driver’s locations at consecutive time stamps and check if this
 corresponds to an edge in the map.
+
 • If it does we add the current link , duration, timestamp in the output file. Else we
 ignore the data point.
+
 • Now we select a particular edge and extracted data corresponding to this edge and
 sort it by timestamp and write to a new file.
+
 • This file contains the Timestamp and duration for a particular edge in CSV format
 sorted by timestamp.
