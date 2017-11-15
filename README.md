@@ -4,11 +4,13 @@ Dataset Source:
 The dataset has been taken from CRAWDAD, a community resource for archiving
 wireless data at Dartmouth. It is a dataset of mobility traces of taxi cabs in Rome,
 Italy for the month of February in year 2014, for around 300 drivers.
+
 The data is a txt file of around 1.6 GB formatted as:
 DriverID;Timestamp;Position
 Where:- DriverID is an integer ranging from 1 to 300,
 Timestamp includes date and time,
 Position is formatted as POINT(latitude,longitude)
+
 An example is shown below
 156;2014-02-01 00:00:00.739166+01;POINT(41.8836718276551 12.4877775603346)
 187;2014-02-01 00:00:01.148457+01;POINT(41.9285433333333 12.4690366666667)
