@@ -73,3 +73,6 @@ sort it by timestamp and write to a new file.
 
 • This file contains the Timestamp and duration for a particular edge in CSV format
 sorted by timestamp.
+
+
+Finally we train two LSTM models on the generated time series data, as can be seen in approach1.py and btp_lstm.py 
